@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XoTourFolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <a href="#home" id="home-link" class="portfolio-logo">Portfolio</a>
+        <ul>
+            <li><a href="#home" class="nav-link active">Accueil</a></li>
+            <li><a href="#writeups" class="nav-link">Writeups</a></li>
+            <li><a href="#learning" class="nav-link">Apprentissage</a></li>
+            <li><a href="#tools" class="nav-link">Outils</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="fr">FR</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="content">
+            <!-- ACCUEIL / HOME PAGE -->
+            <div class="page active" id="home">
+                <!-- Contenu Français -->
+                <div class="lang-content active" data-lang="fr">
+                    <h1>À propos de moi</h1>
+                    
+                    <!-- Section Profil -->
+                    <div class="profile-section">
+                        <div class="profile-name">XoTourLiff</div>
+                        
+                        <img src="/images/profilepicture.jpg" alt="Profile Picture" class="profile-image" style="display:profile-image;">
+                        
+                        
+                        <!-- Liens sociaux -->
+                        <div class="social-links">
+                            <a href="https://github.com/XoTourLiff" class="social-link" target="_blank">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="social-icon">
+                                <span class="social-text">GitHub</span>
+                            </a>
+                    
+                            <a href="https://app.hackthebox.com/profile/2307461" class="social-link" target="_blank">
+                                <svg fill="#00ff40" width="40" height="40" viewBox="-1.44 -1.44 26.88 26.88" xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                    <path d="M11.996 0a1.119 1.119 0 0 0-.057.003.9.9 0 0 0-.236.05.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77v11.111a.889.889 0 0 0 .47.784l9.598 5.541.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024.01.001.011.003.016.004a.93.93 0 0 0 .296.015.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532a.42.42 0 0 1-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z"></path>
+                                </svg>
+                                <span class="social-text">HackTheBox</span>
+                            </a>
+
+                             
+                            <a href="https://tryhackme.com/p/XoTourLiff33" class="social-link" target="_blank">
+                            <svg fill="#ff3333" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                <path d="M3 13.6493C3 16.6044 5.41766 19 8.4 19H16.5C18.9853 19 21 16.9839 21 14.4969C21 12.6503 19.8893 10.9449 18.3 10.25C18.1317 7.32251 15.684 5 12.6893 5C10.3514 5 8.34694 6.48637 7.5 8.5C4.8 8.9375 3 11.2001 3 13.6493Z"
+                                    fill="ROOTED"/>
+                            </svg>
+                            <span class="social-text">TryHackMe</span>
+                            </a>
+
+                            
+                            <a href="https://discord.com/users/829642384577003571" class="social-link" target="_blank">
+                                <svg fill="#a851ff" viewBox="0 0 32 32" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                    <path d="M20.992 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.050 0.005 0.109 0.005 0.168 0 1.523-1.191 2.768-2.693 2.854l-0.008 0zM11.026 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.048 0.005 0.104 0.005 0.161 0 1.525-1.19 2.771-2.692 2.862l-0.008 0zM26.393 6.465c-1.763-0.832-3.811-1.49-5.955-1.871l-0.149-0.022c-0.005-0.001-0.011-0.002-0.017-0.002-0.035 0-0.065 0.019-0.081 0.047l-0 0c-0.234 0.411-0.488 0.924-0.717 1.45l-0.043 0.111c-1.030-0.165-2.218-0.259-3.428-0.259s-2.398 0.094-3.557 0.275l0.129-0.017c-0.27-0.63-0.528-1.142-0.813-1.638l0.041 0.077c-0.017-0.029-0.048-0.047-0.083-0.047-0.005 0-0.011 0-0.016 0.001l0.001-0c-2.293 0.403-4.342 1.060-6.256 1.957l0.151-0.064c-0.017 0.007-0.031 0.019-0.040 0.034l-0 0c-2.854 4.041-4.562 9.069-4.562 14.496 0 0.907 0.048 1.802 0.141 2.684l-0.009-0.11c0.003 0.029 0.018 0.053 0.039 0.070l0 0c2.14 1.601 4.628 2.891 7.313 3.738l0.176 0.048c0.008 0.003 0.018 0.004 0.028 0.004 0.032 0 0.060-0.015 0.077-0.038l0-0c0.535-0.72 1.044-1.536 1.485-2.392l0.047-0.1c0.006-0.012 0.010-0.027 0.010-0.043 0-0.041-0.026-0.075-0.062-0.089l-0.001-0c-0.912-0.352-1.683-0.727-2.417-1.157l0.077 0.042c-0.029-0.017-0.048-0.048-0.048-0.083 0-0.031 0.015-0.059 0.038-0.076l0-0c0.157-0.118 0.315-0.24 0.465-0.364 0.016-0.013 0.037-0.021 0.059-0.021 0.014 0 0.027 0.003 0.038 0.008l-0.001-0c2.208 1.061 4.8 1.681 7.536 1.681s5.329-0.62 7.643-1.727l-0.107 0.046c0.012-0.006 0.025-0.009 0.040-0.009 0.022 0 0.043 0.008 0.059 0.021l-0-0c0.15 0.124 0.307 0.248 0.466 0.365 0.023 0.018 0.038 0.046 0.038 0.077 0 0.035-0.019 0.065-0.046 0.082l-0 0c-0.661 0.395-1.432 0.769-2.235 1.078l-0.105 0.036c-0.036 0.014-0.062 0.049-0.062 0.089 0 0.016 0.004 0.031 0.011 0.044l-0-0.001c0.501 0.96 1.009 1.775 1.571 2.548l-0.040-0.057c0.017 0.024 0.046 0.040 0.077 0.040 0.010 0 0.020-0.002 0.029-0.004l-0.001 0c2.865-0.892 5.358-2.182 7.566-3.832l-0.065 0.047c0.022-0.016 0.036-0.041 0.039-0.069l0-0c0.087-0.784 0.136-1.694 0.136-2.615 0-5.415-1.712-10.43-4.623-14.534l0.052 0.078c-0.008-0.016-0.022-0.029-0.038-0.036l-0-0z"/>
+                                </svg>
+                                <span class="social-text">Discord</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="subtitle">Étudiant en Cybersécurité</div>
+                    <div class="subtitle">Pentester & Blue Team passioné - RNCP niveau 6</div>
+                    
+
+                    <div class="quote">
+                        "Apprendre n'épuise jamais l'esprit." – Leonardo da Vinci
+                    </div>
+
+                    <div class="about-section">       <!-- ...copie ici tout le contenu du bloc id="home" de index.html... -->
+                        <h2>🙋‍♂️ À propos de moi</h2>
+                        <div class="placeholder">
+                            Passionné par l’informatique depuis le lycée (Bac Pro SN option RISC), 
+                            j’ai poursuivi avec un BTS SIO option SISR, une licence pro ADMINSYS, et je prépare actuellement un Mastère Expert en Cybersécurité.
+                             La cybersécurité est un domaine complexe et en constante évolution, mais c’est ce qui le rend fascinant. 
+                             Les plateformes comme HackTheBox ou TryHackMe sont devenues des outils essentiels pour moi, permettant un apprentissage pratique 
+                             en « learn by doing » qui complète parfaitement l’enseignement théorique.
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🎓 Études et Formation</h2>
+                        <div class="placeholder">
+                            MSc Expert en cybersécurité BAC+5 - EPSI Montpellier (2024 - Aujourd'hui) 
+                        </div>
+                        
+                        <h3>Cours :</h3>
+                        <ul>
+                            <li class="placeholder">RGPD,
+                                                    Vulnérabilité Applicative,
+                                                    Gestion Cyber-Attaque,
+                                                    PRA/PCA,
+                                                    IPS/IDS,
+                                                    Sécurité du Cloud,
+                                                    Gestion d’identités,
+                                                    Analyse forensic réseau,
+                                                    SOC & SIEM,
+                                                    Cryptographie,
+                                                    Sécurité WIFI,
+                                                    Pentest..
+                                </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🎖️ Classements & Réalisations</h2>
+                        <ul>
+                            <li class="placeholder">TryHackMe: Hacker, ≈ Top 10%</li>
+                            <li class="placeholder">Hack The Box : Hacker, ≈ Top 800</li>
+                            <li class="placeholder">Plus de 30 machines HackTheBox compromises, plus de 50 salles TryHackMe terminées.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contenu Anglais -->
+                <div class="lang-content" data-lang="en">
+                    <h1>About Me</h1>
+                    
+                    <!-- Section Profil -->
+                    <div class="profile-section">
+                        <div class="profile-name">XoTourLiff</div>
+                        
+                        <img src="/images/profilepicture.jpg" alt="Profile Picture" class="profile-image" style="display:profile-image;">
+                        
+                        <!-- Social Links -->
+                        <div class="social-links">
+                            <a href="https://github.com/XoTourLiff" class="social-link" target="_blank">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="social-icon">
+                                <span class="social-text">GitHub</span>
+                            </a>
+                    
+                            <a href="https://app.hackthebox.com/profile/2307461" class="social-link" target="_blank">
+                                <svg fill="#00ff40" width="40" height="40" viewBox="-1.44 -1.44 26.88 26.88" xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                    <path d="M11.996 0a1.119 1.119 0 0 0-.057.003.9.9 0 0 0-.236.05.907.907 0 0 0-.165.079L1.936 5.675a.889.889 0 0 0-.445.77v11.111a.889.889 0 0 0 .47.784l9.598 5.541.054.029v.002a.857.857 0 0 0 .083.035l.012.004c.028.01.056.018.085.024.01.001.011.003.016.004a.93.93 0 0 0 .296.015.683.683 0 0 0 .086-.015c.01 0 .011-.002.016-.004a.94.94 0 0 0 .085-.024l.012-.004a.882.882 0 0 0 .083-.035v-.002a1.086 1.086 0 0 0 .054-.029l9.599-5.541a.889.889 0 0 0 .469-.784V6.48l-.001-.026v-.008a.889.889 0 0 0-.312-.676l-.029-.024c0-.002-.01-.005-.01-.007a.899.899 0 0 0-.107-.07L12.453.127A.887.887 0 0 0 11.99 0zm.01 2.253c.072 0 .144.019.209.056l6.537 3.774a.418.418 0 0 1 0 .724l-6.537 3.774a.418.418 0 0 1-.418 0L5.26 6.807a.418.418 0 0 1 0-.724l6.537-3.774a.42.42 0 0 1 .209-.056zm-8.08 6.458a.414.414 0 0 1 .215.057l6.524 3.766a.417.417 0 0 1 .208.361v7.533a.417.417 0 0 1-.626.361l-6.523-3.766a.417.417 0 0 1-.209-.362V9.13c0-.241.196-.414.41-.418zm16.16 0c.215.004.41.177.41.418v7.532a.42.42 0 0 1-.208.362l-6.524 3.766a.417.417 0 0 1-.626-.361v-7.533c0-.149.08-.286.209-.36l6.523-3.767a.415.415 0 0 1 .216-.057z"></path>
+                                </svg>
+                                <span class="social-text">HackTheBox</span>
+                            </a>
+
+                             
+                            <a href="https://tryhackme.com/p/XoTourLiff33" class="social-link" target="_blank">
+                            <svg fill="#ff3333" width="40" height="40" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                <path d="M3 13.6493C3 16.6044 5.41766 19 8.4 19H16.5C18.9853 19 21 16.9839 21 14.4969C21 12.6503 19.8893 10.9449 18.3 10.25C18.1317 7.32251 15.684 5 12.6893 5C10.3514 5 8.34694 6.48637 7.5 8.5C4.8 8.9375 3 11.2001 3 13.6493Z"
+                                    fill="ROOTED"/>
+                            </svg>
+                            <span class="social-text">TryHackMe</span>
+                            </a>
+
+                            
+                            <a href="https://discord.com/users/829642384577003571" class="social-link" target="_blank">
+                                <svg fill="#a851ff" viewBox="0 0 32 32" width="40" height="40" xmlns="http://www.w3.org/2000/svg" class="social-icon">
+                                    <path d="M20.992 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.050 0.005 0.109 0.005 0.168 0 1.523-1.191 2.768-2.693 2.854l-0.008 0zM11.026 20.163c-1.511-0.099-2.699-1.349-2.699-2.877 0-0.051 0.001-0.102 0.004-0.153l-0 0.007c-0.003-0.048-0.005-0.104-0.005-0.161 0-1.525 1.19-2.771 2.692-2.862l0.008-0c1.509 0.082 2.701 1.325 2.701 2.847 0 0.062-0.002 0.123-0.006 0.184l0-0.008c0.003 0.048 0.005 0.104 0.005 0.161 0 1.525-1.19 2.771-2.692 2.862l-0.008 0zM26.393 6.465c-1.763-0.832-3.811-1.49-5.955-1.871l-0.149-0.022c-0.005-0.001-0.011-0.002-0.017-0.002-0.035 0-0.065 0.019-0.081 0.047l-0 0c-0.234 0.411-0.488 0.924-0.717 1.45l-0.043 0.111c-1.030-0.165-2.218-0.259-3.428-0.259s-2.398 0.094-3.557 0.275l0.129-0.017c-0.27-0.63-0.528-1.142-0.813-1.638l0.041 0.077c-0.017-0.029-0.048-0.047-0.083-0.047-0.005 0-0.011 0-0.016 0.001l0.001-0c-2.293 0.403-4.342 1.060-6.256 1.957l0.151-0.064c-0.017 0.007-0.031 0.019-0.040 0.034l-0 0c-2.854 4.041-4.562 9.069-4.562 14.496 0 0.907 0.048 1.802 0.141 2.684l-0.009-0.11c0.003 0.029 0.018 0.053 0.039 0.070l0 0c2.14 1.601 4.628 2.891 7.313 3.738l0.176 0.048c0.008 0.003 0.018 0.004 0.028 0.004 0.032 0 0.060-0.015 0.077-0.038l0-0c0.535-0.72 1.044-1.536 1.485-2.392l0.047-0.1c0.006-0.012 0.010-0.027 0.010-0.043 0-0.041-0.026-0.075-0.062-0.089l-0.001-0c-0.912-0.352-1.683-0.727-2.417-1.157l0.077 0.042c-0.029-0.017-0.048-0.048-0.048-0.083 0-0.031 0.015-0.059 0.038-0.076l0-0c0.157-0.118 0.315-0.24 0.465-0.364 0.016-0.013 0.037-0.021 0.059-0.021 0.014 0 0.027 0.003 0.038 0.008l-0.001-0c2.208 1.061 4.8 1.681 7.536 1.681s5.329-0.62 7.643-1.727l-0.107 0.046c0.012-0.006 0.025-0.009 0.040-0.009 0.022 0 0.043 0.008 0.059 0.021l-0-0c0.15 0.124 0.307 0.248 0.466 0.365 0.023 0.018 0.038 0.046 0.038 0.077 0 0.035-0.019 0.065-0.046 0.082l-0 0c-0.661 0.395-1.432 0.769-2.235 1.078l-0.105 0.036c-0.036 0.014-0.062 0.049-0.062 0.089 0 0.016 0.004 0.031 0.011 0.044l-0-0.001c0.501 0.96 1.009 1.775 1.571 2.548l-0.040-0.057c0.017 0.024 0.046 0.040 0.077 0.040 0.010 0 0.020-0.002 0.029-0.004l-0.001 0c2.865-0.892 5.358-2.182 7.566-3.832l-0.065 0.047c0.022-0.016 0.036-0.041 0.039-0.069l0-0c0.087-0.784 0.136-1.694 0.136-2.615 0-5.415-1.712-10.43-4.623-14.534l0.052 0.078c-0.008-0.016-0.022-0.029-0.038-0.036l-0-0z"/>
+                                </svg>
+                                <span class="social-text">Discord</span>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="subtitle">Cybersecurity Student</div>
+                    <div class="subtitle">Pentester & Blue Team enthusiast - RNCP level 6</div>
+
+
+                    <div class="quote">
+                        "Learning never exhausts the mind." – Leonardo da Vinci"
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🙋‍♂️ About Me</h2>
+                        <div class="placeholder">
+                            Passionate about IT since high school (Bac Pro SN, RISC option), I continued my studies with a BTS SIO (SISR option), a professional license in ADMINSYS, 
+                            and I am currently pursuing a Master's in Cybersecurity. Cybersecurity is a complex and constantly evolving field, 
+                            which is exactly what makes it fascinating. Platforms like HackTheBox and TryHackMe have become essential tools for me, 
+                            providing hands-on, “learn by doing” experience that perfectly complements theoretical learning.
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🎓 Studies & Training</h2>
+                        <div class="placeholder">
+                            [YOUR CURRENT STUDIES - School, level, specialization]
+                        </div>
+                        
+                        <h3>Courses:</h3>
+                        <ul>
+                            <li class="placeholder">GDPR,
+                                                    Application Vulnerability,
+                                                    Cyber Attack Management,
+                                                    DRP/BCP,
+                                                    IPS/IDS,
+                                                    Cloud Security,
+                                                    Identity Management,
+                                                    Network Forensic Analysis,
+                                                    SOC & SIEM,
+                                                    Cryptography,
+                                                    Wi-Fi Security,
+                                                    Pentesting..</li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🎖️ Rankings & Achievements</h2>
+                        <ul>
+                            <li class="placeholder">TryHackMe: Hacker, ≈ Top 10%</li>
+                            <li class="placeholder">Hack The Box : Hacker, ≈ Top 800</li>
+                            <li class="placeholder">Over 30 HackTheBox machines pwned, over 50 TryHackMe rooms completed.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WRITEUPS PAGE -->
+            <div class="page" id="writeups">
+                <!-- Contenu Français -->
+                <div class="lang-content active" data-lang="fr">
+                    <h1>📝 Writeups</h1>
+                    <div class="subtitle">Mes Solutions CTF & Lab</div>
+                    
+                    <div class="placeholder">
+                        Dans mes writeups, je détaille mon approche étape par étape :
+                         de la compréhension du challenge à l’identification des vulnérabilités, en passant par l’exploitation et la remédiation.
+                         J'ai une préférence pour les environnements Windows (Active Directory), mais j'explore également des environnements Linux.
+
+                    </div>
+
+                    <h2>HackTheBox</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Machine</th>
+                                <th>Difficulté</th>
+                                <th>OS</th>
+                                <th>Statut</th>
+                                <th>Writeup</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="placeholder">Editor
+                                <img src="writeup_png/Editor.png" alt="Editor Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Editor.pdf">[LIEN]</a></td>
+                            </tr>                            
+                            <tr>                            
+                            <tr>
+                                <td class="placeholder">Era
+                                <img src="writeup_png/Era.png" alt="Era Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Era.pdf">[LIEN]</a></td>
+                            </tr>                            
+                            <tr>
+                                <td class="placeholder">Outbound
+                                <img src="writeup_png/Outbound.png" alt="Outbound Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Outbound.pdf">[LIEN]</a></td>
+                            </tr>                            
+                            <tr>
+                                <td class="placeholder">Voleur
+                                <img src="writeup_png/Voleur.png" alt="Voleur Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Voleur.pdf">[LIEN]</a></td>
+                            </tr>                            
+                            <tr>
+                                <td class="placeholder">Mirage
+                                <img src="writeup_png/mirage.png" alt="Mirage Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: red;">Hard</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Mirage.pdf">[LIEN]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">Planning
+                                <img src="writeup_png/planning.png" alt="Planning Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Planning.pdf">[LIEN]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">Puppy
+                                <img src="writeup_png/puppy.png" alt="Puppy Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Puppy.pdf">[LIEN]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">Fluffy
+                                <img src="writeup_png/fluffy.png" alt="Fluffy Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status in-progress">USER</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Fluffy.pdf">[LIEN]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">TombWatcher
+                                <img src="writeup_png/Tombwatcher.png" alt="TombWatcher Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status in-progress">USER</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/TombWatcher.pdf">[LIEN]</a></td>
+                            </tr>                                                                                          
+                            <tr>
+                                <td class="placeholder">Artificial
+                                <img src="writeup_png/Artificial.png" alt="Artificial Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Artificial.pdf">[LIEN]</a></td>
+                            </tr>                                
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Contenu Anglais -->
+                <div class="lang-content" data-lang="en">
+                    <h1>📝 Writeups</h1>
+                    <div class="subtitle">My CTF & Lab Solutions</div>
+                    
+                    <div class="placeholder">
+                        In my writeups, I detail my approach step by step: from understanding the challenge 
+                        to identifying vulnerabilities, through exploitation and remediation. 
+                        I have a preference for Windows environments (Active Directory), but I also explore Linux environments.
+                    </div>
+
+                    <h2>HackTheBox</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Machine</th>
+                                <th>Difficulty</th>
+                                <th>OS</th>
+                                <th>Status</th>
+                                <th>Writeup</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="placeholder">Editor
+                                <img src="writeup_png/Editor.png" alt="Editor Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Editor.pdf">[LINK]</a></td>
+                            </tr>                            
+                            <tr>                            
+                            <tr>
+                                <td class="placeholder">Era
+                                <img src="writeup_png/Era.png" alt="Era Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Era.pdf">[LINK]</a></td>
+                            </tr>                            
+                            <tr>
+                                <td class="placeholder">Outbound
+                                <img src="writeup_png/Outbound.png" alt="Outbound Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Outbound.pdf">[LINK]</a></td>
+                            </tr>                            
+                            <tr>
+                                <td class="placeholder">Voleur
+                                <img src="writeup_png/Voleur.png" alt="Voleur Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Voleur.pdf">[LINK]</a></td>
+                            </tr>                            
+                            <tr>
+                                <td class="placeholder">Mirage
+                                <img src="writeup_png/mirage.png" alt="Mirage Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: red;">Hard</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Mirage.pdf">[LINK]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">Planning
+                                <img src="writeup_png/planning.png" alt="Planning Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Planning.pdf">[LINK]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">Puppy
+                                <img src="writeup_png/puppy.png" alt="Puppy Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Puppy.pdf">[LINK]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">Fluffy
+                                <img src="writeup_png/fluffy.png" alt="Fluffy Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status in-progress">USER</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Fluffy.pdf">[LINK]</a></td>
+                            </tr>
+                            <tr>
+                                <td class="placeholder">TombWatcher
+                                <img src="writeup_png/Tombwatcher.png" alt="TombWatcher Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(241, 146, 38);">Medium</td>
+                                <td class="placeholder">Windows</td>
+                                <td><span class="status in-progress">USER</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/TombWatcher.pdf">[LINK]</a></td>
+                            </tr>                                                                                          
+                            <tr>
+                                <td class="placeholder">Artificial
+                                <img src="writeup_png/Artificial.png" alt="Artificial Logo" style="width:24px; height:24px; vertical-align:middle; margin-left:5px;">
+                                </td>
+                                <td class="placeholder" style="color: rgb(18, 158, 0);">Easy</td>
+                                <td class="placeholder">Linux</td>
+                                <td><span class="status completed">PWND</span></td>
+                                <td><a href="https://github.com/XoTourLiff/Cybersecurity_PATH/blob/main/HTB-Notes/Machines/Artificial.pdf">[LINK]</a></td>
+                            </tr>                                
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- LEARNING / APPRENTISSAGE PAGE -->
+            <div class="page" id="learning">
+                <!-- Contenu Français -->
+                <div class="lang-content active" data-lang="fr">
+                    <h1>📚 Parcours d'Apprentissage</h1>
+                    <div class="subtitle">Mon Voyage en Cybersécurité</div>
+
+                    <div class="quote">
+                        "Apprendre en pratiquant est la meilleur façon d'apprendre."
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🔥 Comment je développe mes compétences</h2>
+                        <div class="placeholder">
+                            Mon approche d’apprentissage ne se limite pas à exploiter des machines ou « pwner » des boxes. 
+                            J’essaie de comprendre en profondeur chaque vulnérabilité :
+                             comment elle est apparue, pourquoi elle est exploitable et quelles sont les bonnes pratiques pour éviter de reproduire 
+                             les mêmes erreurs à l’avenir. Cette démarche me permet d’acquérir des compétences solides en sécurité et de progresser 
+                             de manière durable, plutôt que de me contenter de résultats ponctuels.
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>📖 Ressources Essentielles</h2>
+                        
+                        <h3>Applications Web</h3>
+                        <ul>
+                            <li class="placeholder">
+                                <strong>Dafydd Stuttard</strong> – Créateur de PortSwigger<br>
+                                Actuellement la meilleure plateforme pour apprendre le pentest web et sécuriser.<br>
+                                <a href="https://portswigger.net/" class="social-link" target="_blank" title="PortSwigger" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="https://cdn.brandfetch.io/idC7C956wH/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1744841067178" 
+                                        alt="PortSwigger Logo" class="social-icon" style="width:40px; height:40px; background:#fff;"/>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>
+                            <li class="placeholder"><strong>Mark Curphey</strong> – Fondateur de l'OWASP<br>L’OWASP fournit des ressources et
+                                 outils pour aider à sécuriser les applications web.<br>
+                                 <a href="https://owasp.org/www-project-top-ten/" class="social-link" target="_blank" title="OWASP" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="https://cdn.brandfetch.io/idoWC61mgl/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1749763396068" 
+                                        alt="OWASP Logo" class="social-icon" style="width:40px; height:40px;"/>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>                            
+                        </ul>
+
+                        <h3>Environnements AD / Windows</h3>
+                        <ul>
+                            <li class="placeholder"><strong>Carlos Polop</strong> – Dirigeant de HackTricks<br>HackTricks est une ressource complète pour le pentest, 
+                                particulièrement utile pour l’Active Directory, les vulnérabilités applicatives et les techniques persistances.<br>
+                                 <a href="https://book.hacktricks.wiki/en/index.html" class="social-link" target="_blank" title="HackTricks" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="https://cdn.brandfetch.io/idfnN03FQx/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1735872415373" 
+                                        alt="HackTricks Logo" class="social-icon" style="width:40px; height:40px; background: #fff;"/>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>     
+                        </ul>
+                        <ul>
+                            <li class="placeholder">
+                                <strong>Charlie Bromberg</strong> – Créateur de The Hacker Recipes<br>
+                                The Hacker Recipes est une ressource complète pour le pentest, un projet open source.<br>
+
+                                <a href="https://www.thehacker.recipes/" class="social-link" target="_blank" title="TheHackerRecipes" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-0.5 -0.5 502 502" class="social-icon" style="background: #fff;">
+                                        <defs/>
+                                        <g>
+                                            <ellipse cx="249.75" cy="249.85" rx="239.93" ry="239.93" fill="none" stroke="none" pointer-events="all"/>
+                                            <path d="M 134.31 411.84 L 50.67 268.11 C 44.13 256.87 44.13 243.01 50.67 231.76 L 134.31 88.04 C 140.83 76.76 152.93 69.79 166.04 69.77 L 333.32 69.77 C 346.45 69.73 358.61 76.66 365.18 87.95 L 448.82 231.67 C 455.36 242.92 455.36 256.77 448.82 268.02 L 365.18 411.74 C 358.61 423.03 346.45 429.96 333.32 429.92 L 166.04 429.92 C 152.97 429.94 140.88 423.05 134.31 411.84 Z" fill="#d0e1f2" stroke="#6c8ebf" stroke-width="40" stroke-miterlimit="10" transform="rotate(90,249.76,249.86)" pointer-events="all"/>
+                                            <path d="M 175.5 354.05 L 121.7 261.6 C 117.49 254.37 117.49 245.45 121.7 238.22 L 175.5 145.77 C 179.69 138.51 187.48 134.03 195.91 134.02 L 303.51 134.02 C 311.96 133.99 319.78 138.45 324 145.71 L 377.8 238.16 C 382.01 245.39 382.01 254.31 377.8 261.54 L 324 353.99 C 319.78 361.25 311.96 365.71 303.51 365.68 L 195.91 365.68 C 187.5 365.69 179.72 361.26 175.5 354.05 Z" fill="#edf6ff" stroke="#b85450" stroke-width="30" stroke-miterlimit="10" transform="rotate(90,249.76,249.86)" pointer-events="all"/>
+                                            <ellipse cx="249.76" cy="211" rx="30" ry="30" fill="#b85450" stroke="#b85450" stroke-width="22" pointer-events="all"/>
+                                            <path d="M 189.74 288 L 309.74 308 L 189.74 328 Z" fill="#b85450" stroke="#b85450" stroke-width="22" stroke-miterlimit="10" transform="rotate(-90,249.74,308)" pointer-events="all"/>
+                                        </g>
+                                    </svg>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🧠 Types d'Attaques que j'Étudie</h2>
+                        
+                        <h3>Kerberos</h3>
+                        <div class="placeholder">
+                            J'apprends à exploiter les faiblesses du protocole d'authentification Kerberos, y compris le vol de tickets et l'escalade de privilèges. 
+                            Voici mes documentations expliquant comment exploiter et aussi sécuriser les failles :<br> 
+                            <a href="https://github.com/XoTourLiff/Cybersecurity_PATH/tree/main/Kerberos-Notes" class="doc-link" target="_blank" title="Kerberos" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="svg/kerberos.svg" alt="Kerb Logo" class="doc-icon" style="width:40px; height:40px;"/>
+                                <span class="social-text"></span>
+                                </a>
+                        </div>
+
+                        <h3>ADCS</h3>
+                        <div class="placeholder">
+                            J'étudie les attaques contre les services de certification Active Directory, y compris la falsification de certificats et l'élévation de privilèges. 
+                            Voici mes documentations expliquant comment exploiter et aussi sécuriser les failles :<br>
+                            <a href="https://github.com/XoTourLiff/Cybersecurity_PATH/tree/main/ADCS" class="doc-link" target="_blank" title="ADCS" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="svg/adcs.svg" alt="ADCS Logo" class="doc-icon" style="width:40px; height:40px;"/>
+                                <span class="social-text"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenu Anglais -->
+                <div class="lang-content" data-lang="en">
+                    <h1>📚 Learning Path</h1>
+                    <div class="subtitle">My Cybersecurity Journey</div>
+
+                    <div class="quote">
+                        "Learn By Doing is the best way to learn."
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🔥 How I build my skills</h2>
+                        <div class="placeholder">
+                            My learning approach is not limited to exploiting machines or “pwning” boxes. I strive to deeply understand each vulnerability: how it arose, why it is exploitable, and the best practices to avoid repeating the same mistakes in the future.
+                             This approach allows me to build solid security skills and make sustainable progress, 
+                             rather than focusing only on short-term results.
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>📖 Ressources Essentielles</h2>
+                        
+                        <h3>Web Applications</h3>
+                        <ul>
+                            <li class="placeholder">
+                                <strong>Dafydd Stuttard</strong> – Creator of PortSwigger<br>
+                                Currently the best platform for learning web pentesting and securing hands-on labs.<br>
+                                <a href="https://portswigger.net/" class="social-link" target="_blank" title="PortSwigger" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="https://cdn.brandfetch.io/idC7C956wH/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1744841067178" 
+                                        alt="PortSwigger Logo" class="social-icon" style="width:40px; height:40px; background:#fff;"/>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>
+                            <li class="placeholder"><strong>Mark Curphey</strong> – Founder of OWASP<br>OWASP provides resources and free tools to help secure web applications and exploits.<br>
+                                 <a href="https://owasp.org/www-project-top-ten/" class="social-link" target="_blank" title="OWASP" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="https://cdn.brandfetch.io/idoWC61mgl/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1749763396068" 
+                                        alt="OWASP Logo" class="social-icon" style="width:40px; height:40px;"/>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>                            
+                        </ul>
+
+                        <h3>AD / Windows Environments</h3>
+                        <ul>
+                            <li class="placeholder"><strong>Carlos Polop</strong> – Leader of HackTricks<br>HackTricks is a comprehensive pentesting resource, particularly useful for an Active Directory environments, application vulnerabilities, and persistence techniques.<br>
+                                 <a href="https://book.hacktricks.wiki/en/index.html" class="social-link" target="_blank" title="HackTricks" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="https://cdn.brandfetch.io/idfnN03FQx/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1735872415373" 
+                                        alt="HackTricks Logo" class="social-icon" style="width:40px; height:40px; background: #fff;"/>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>     
+                        </ul>
+                        <ul>
+                            <li class="placeholder">
+                                <strong>Charlie Bromberg</strong> – Creator of The Hacker Recipes<br>
+                                The Hacker Recipes is a comprehensive pentesting resource, an open-source project.<br>
+
+                                <a href="https://www.thehacker.recipes/" class="social-link" target="_blank" title="TheHackerRecipes" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-0.5 -0.5 502 502" class="social-icon" style="background: #fff;">
+                                        <defs/>
+                                        <g>
+                                            <ellipse cx="249.75" cy="249.85" rx="239.93" ry="239.93" fill="none" stroke="none" pointer-events="all"/>
+                                            <path d="M 134.31 411.84 L 50.67 268.11 C 44.13 256.87 44.13 243.01 50.67 231.76 L 134.31 88.04 C 140.83 76.76 152.93 69.79 166.04 69.77 L 333.32 69.77 C 346.45 69.73 358.61 76.66 365.18 87.95 L 448.82 231.67 C 455.36 242.92 455.36 256.77 448.82 268.02 L 365.18 411.74 C 358.61 423.03 346.45 429.96 333.32 429.92 L 166.04 429.92 C 152.97 429.94 140.88 423.05 134.31 411.84 Z" fill="#d0e1f2" stroke="#6c8ebf" stroke-width="40" stroke-miterlimit="10" transform="rotate(90,249.76,249.86)" pointer-events="all"/>
+                                            <path d="M 175.5 354.05 L 121.7 261.6 C 117.49 254.37 117.49 245.45 121.7 238.22 L 175.5 145.77 C 179.69 138.51 187.48 134.03 195.91 134.02 L 303.51 134.02 C 311.96 133.99 319.78 138.45 324 145.71 L 377.8 238.16 C 382.01 245.39 382.01 254.31 377.8 261.54 L 324 353.99 C 319.78 361.25 311.96 365.71 303.51 365.68 L 195.91 365.68 C 187.5 365.69 179.72 361.26 175.5 354.05 Z" fill="#edf6ff" stroke="#b85450" stroke-width="30" stroke-miterlimit="10" transform="rotate(90,249.76,249.86)" pointer-events="all"/>
+                                            <ellipse cx="249.76" cy="211" rx="30" ry="30" fill="#b85450" stroke="#b85450" stroke-width="22" pointer-events="all"/>
+                                            <path d="M 189.74 288 L 309.74 308 L 189.74 328 Z" fill="#b85450" stroke="#b85450" stroke-width="22" stroke-miterlimit="10" transform="rotate(-90,249.74,308)" pointer-events="all"/>
+                                        </g>
+                                    </svg>
+                                    <span class="social-text"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🧠 Attack Types I Study</h2>
+                        
+                        <h3>Kerberos</h3>
+                        <div class="placeholder">
+                            I am learning to exploit weaknesses in the Kerberos authentication protocol, including ticket theft and privilege escalation. Here are my documentations explaining how to exploit and also secure the vulnerabilities: [LINK]
+                        </div>
+
+                        <h3>ADCS</h3>
+                        <div class="placeholder">
+                            I am learning to exploit vulnerabilities in Active Directory Certificate Services (ADCS), including misconfigurations and weak cryptography. Here are my documentations explaining how to exploit and also secure the vulnerabilities: [LINK]
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TOOLS / OUTILS PAGE -->
+            <div class="page" id="tools">
+                <!-- Contenu Français -->
+                <div class="lang-content active" data-lang="fr">
+                    <h1>🛠️ Environments & Outils</h1>
+                    <div class="subtitle">Ma Boîte à Outils Cybersécurité</div>
+
+                    <div class="about-section">
+                        <h2>🌑 Environment</h2>                    
+                        <h3>Exegol</h3>
+                        <div class="placeholder">
+                            <strong>Description:</strong> J’utilise Exegol, un puissant framework de post-exploitation conçu pour les red teams et les testeurs d’intrusion.<br>
+                            <img src="images/exegolbanner.png" alt="Exegol Banner" style="width:100%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            Télécharger Exegol :<br>
+                            <a href="https://exegol.com/" target="_blank" title="Exegol" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="/svg/exegol.svg" alt="Exegol Logo" style="width:50px; height:50px;">   
+                                <span class="social-text"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>⚡ Outils Favoris</h2>
+                        
+                        <h3>Reconnaissance</h3>
+                        <ul>
+                            <li class="placeholder"><strong>Nmap</strong> - Nmap est utilisé pour découvrir les hôtes et services d’un réseau, 
+                                cartographier son infrastructure, identifier les ports ouverts et détecter d’éventuelles vulnérabilités, 
+                                ce qui en fait un outil essentiel de reconnaissance et d’audit en cybersécurité.</li><br>
+                                <img src="images/nmap.png" alt="Nmap Banner" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                                Lien vers Nmap :<br>
+                                <a href="https://nmap.org/" target="_blank" title="Nmap" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="/svg/nmap.svg" alt="Nmap Logo" style="width:30px; height:30px;">   
+                                    <span class="social-text"></span>
+                                </a>
+                        </ul>
+
+                        <h3>Test d'Applications Web</h3>
+                        <ul>
+                            <li class="placeholder"><strong>BurpSuite</strong> - BurpSuite est utilisé pour analyser et tester la sécurité des applications web,
+                                 il permet d’intercepter, modifier et rejouer les requêtes HTTP/S, 
+                                 d’identifier des vulnérabilités comme les injections ou les failles XSS, et d’automatiser des tests grâce à ses modules 
+                                 (Scanner, Intruder, Repeater, etc.).</li><br>
+                                <img src="images/burp.svg" alt="BurpSuite Banner" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                                Lien vers BurpSuite :<br>
+                                <a href="https://portswigger.net/burp" target="_blank" title="BurpSuite" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="/svg/burpsuite-security-software-svgrepo-com.svg" alt="BurpSuite Logo" style="width:30px; height:30px;">   
+                                    <span class="social-text"></span>
+                                </a>                                
+
+                        </ul>
+
+                        <h3>Windows/Active Directory</h3>
+                        <ul>
+                            <li class="placeholder"><strong>NetExec</strong> - NetExec est un outil de post-exploitation et d’automatisation en pentest, particulièrement utile dans les environnements Windows et Active Directory. Il permet de vérifier des identifiants à grande échelle, d’exécuter des commandes à distance, 
+                                d’énumérer les partages, sessions et utilisateurs, et d’accélérer de nombreuses étapes d’attaque en centralisant les actions. 
+                                C’est un véritable couteau suisse pour gagner du temps et simplifier l’énumération ainsi que la post-exploitation réseau.</li><br>
+                                <img src="images/netexec.avif" alt="NetExec Banner" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                                Lien vers NetExec :<br>
+                                <a href="https://www.netexec.wiki/" target="_blank" title="NetExec" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="/svg/netexec.svg" alt="NetExec Logo" style="width:50px; height:50px;">   
+                                    <span class="social-text"></span>
+                                </a>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🏠 Configuration de Lab Personnel</h2>
+                        <div class="placeholder">
+                            Ma machine principale est sous Linux (CachyOS), je lui ai fait un racing pour plus de flexibilité.
+                            J'ai choisi comme terminal par défaut Ghostty pour son esthétique et sa personnalisation.
+                            J'utilise VMware pour mes machines virtuelles, avec des environnements Windows et Linux.<br>
+                            <a href="https://www.youtube.com/watch?v=0OvvNN05ZnE" target="_blank">
+                                <img src="images/cachyOS.jpg" alt="cachyOS" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            </a>
+                            Lien vers CachyOS :<br>
+                            <a href="https://cachyos.org/" target="_blank" title="CachyOS" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="images/CachyOS_Logo.svg.png" alt="CachyOS Logo" style="width:40px; height:40px;">   
+                                <span class="social-text"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>📝 Aide-mémoires</h2>
+                        <h3>Obsydian</h3>
+                        <div class="placeholder">
+                            <strong>Description:</strong> Obsidian sert à prendre des notes et organiser ses idées sous forme de liens et de graphes, idéal pour structurer ses connaissances. Je l'utilise pour documenter mes apprentissages, mes writeups et mes ressources.<br>
+                            <img src="images/obsydian.png" alt="Obsidian Banner" style="width:100%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            Exemple de mon vault Obsidian :<br>
+                            <img src="images/obsydian_perso.png" alt="Obsidian Graph Example" style="width:100%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            Télécharger Obsidian :<br>
+                            <a href="https://obsidian.md/" target="_blank" title="Obsidian" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="/svg/obsidian-icon.svg" alt="Obsidian Logo" style="width:40px; height:40px;">   
+                                <span class="social-text"></span>
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contenu Anglais -->
+                <div class="lang-content inactive" data-lang="en">
+                    <h1>🛠️ Environments & Tools</h1>
+                    <div class="subtitle">My Cybersecurity Toolbox</div>
+
+                    <div class="about-section">
+                        <h2>🌑 Environment</h2>                    
+                        <h3>Exegol</h3>
+                        <div class="placeholder">
+                            <strong>Description:</strong> I'm using Exegol, a powerful post-exploitation framework designed for red teamers and penetration testers.<br>
+                            <img src="images/exegolbanner.png" alt="Exegol Banner" style="width:100%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            Download Exegol:<br>
+                            <a href="https://exegol.com/" target="_blank" title="Exegol" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="/svg/exegol.svg" alt="Exegol Logo" style="width:50px; height:50px;">   
+                                <span class="social-text"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>⚡ Favorite Tools</h2>
+                        
+                        <h3>Reconnaissance</h3>
+                        <ul>
+                            <li class="placeholder"><strong>Nmap</strong> - Nmap is used to discover hosts and services on a network, 
+                                map its infrastructure, identify open ports, and detect potential vulnerabilities, 
+                                making it an essential tool for reconnaissance and cybersecurity auditing.</li><br>
+                                <img src="images/nmap.png" alt="Nmap Banner" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                                Link to Nmap:<br>
+                                <a href="https://nmap.org/" target="_blank" title="Nmap" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="/svg/nmap.svg" alt="Nmap Logo" style="width:30px; height:30px;">   
+                                    <span class="social-text"></span>
+                                </a>
+                        </ul>
+
+                        <h3>Web Application Testing</h3>
+                        <ul>
+                            <li class="placeholder"><strong>BurpSuite</strong> - BurpSuite is used to analyze and test web application security. 
+                                It allows intercepting, modifying, and replaying HTTP/S requests, 
+                                identifying vulnerabilities such as injections or XSS flaws, and automating tests thanks to its modules 
+                                (Scanner, Intruder, Repeater, etc.).</li><br>
+                                <img src="images/burp.svg" alt="BurpSuite Banner" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                                Link to BurpSuite:<br>
+                                <a href="https://portswigger.net/burp" target="_blank" title="BurpSuite" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="/svg/burpsuite-security-software-svgrepo-com.svg" alt="BurpSuite Logo" style="width:30px; height:30px;">   
+                                    <span class="social-text"></span>
+                                </a>                                
+                        </ul>
+
+                        <h3>Windows/Active Directory</h3>
+                        <ul>
+                            <li class="placeholder"><strong>NetExec</strong> - NetExec is a post-exploitation and automation tool for pentesting, particularly useful in Windows and Active Directory environments. 
+                                It allows large-scale credential checking, remote command execution, share/session/user enumeration, and speeds up many attack steps by centralizing actions. 
+                                It’s a true Swiss Army knife for saving time and simplifying both enumeration and network post-exploitation.</li><br>
+                                <img src="images/netexec.avif" alt="NetExec Banner" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                                Link to NetExec:<br>
+                                <a href="https://www.netexec.wiki/" target="_blank" title="NetExec" style="display: inline-flex; align-items: center; gap: 5px;">
+                                    <img src="/svg/netexec.svg" alt="NetExec Logo" style="width:50px; height:50px;">   
+                                    <span class="social-text"></span>
+                                </a>
+                        </ul>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>🏠 Personal Lab Setup</h2>
+                        <div class="placeholder">
+                            My main machine runs on Linux (CachyOS), which I customized for more flexibility. 
+                            I chose Ghostty as my default terminal for its design and customization options. 
+                            I use VMware for my virtual machines, running both Windows and Linux environments.<br>
+                            <a href="https://www.youtube.com/watch?v=0OvvNN05ZnE" target="_blank">
+                                <img src="images/cachyOS.jpg" alt="cachyOS" style="width:50%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            </a>
+                            Link to CachyOS:<br>
+                            <a href="https://cachyos.org/" target="_blank" title="CachyOS" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="images/CachyOS_Logo.svg.png" alt="CachyOS Logo" style="width:40px; height:40px;">   
+                                <span class="social-text"></span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="about-section">
+                        <h2>📝 Cheat Sheets</h2>
+                        <h3>Obsidian</h3>
+                        <div class="placeholder">
+                            <strong>Description:</strong> Obsidian is used to take notes and organize ideas through links and graphs, making it ideal for structuring knowledge. 
+                            I use it to document my learning, writeups, and resources.<br>
+                            <img src="images/obsydian.png" alt="Obsidian Banner" style="width:100%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            Example of my Obsidian vault:<br>
+                            <img src="images/obsydian_perso.png" alt="Obsidian Graph Example" style="width:100%; max-width:600px; margin:10px 0; border-radius:8px;"/><br>
+                            Download Obsidian:<br>
+                            <a href="https://obsidian.md/" target="_blank" title="Obsidian" style="display: inline-flex; align-items: center; gap: 5px;">
+                                <img src="/svg/obsidian-icon.svg" alt="Obsidian Logo" style="width:40px; height:40px;">   
+                                <span class="social-text"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CONTACT PAGE -->
+            <div class="page" id="contact">
+                <!-- Contenu Français -->
+                <div class="lang-content active" data-lang="fr">
+                    <h1>📬 Contact</h1>
+                    <div class="subtitle">Restons en Contact</div>
+
+                    <div class="about-section">
+                        <h2>📞 Prenez Contact</h2>
+                        <div class="placeholder">
+                            Si vous souhaitez me contacter, pour des questions, échanger, voici mon email :
+                        </div>
+                        
+                        <ul>
+                            <li>📧 Email: <a href="mailto:[EMAIL]">xotourliff@gmail.com</a></li><br>
+                        </ul>
+                        <div class="placeholder">
+                            Voici aussi mon CV (rédigé en français) au cas où vous voudriez en savoir plus sur mon parcours et mes compétences :
+                        </div>
+                        <ul>
+                            <li>📄 CV: <a href="cv/CV_Xotourliff.pdf" target="_blank" rel="noopener">Télécharger mon CV (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contenu Anglais -->
+                <div class="lang-content" data-lang="en">
+                    <h1>📬 Contact</h1>
+                    <div class="subtitle">Let's Connect</div>
+
+                    <div class="about-section">
+                        <h2>📞 Get In Touch</h2>
+                        <div class="placeholder">
+                            If you want to reach out to me, for questions, networking, here is my email:
+                        </div>
+                        
+                        <ul>
+                            <li>📧 Email: <a href="mailto:[EMAIL]">xotourliff@gmail.com</a></li><br>
+                        </ul>
+                        <div class="placeholder">
+                            Here is also my CV (written in french) in case you want to know more about my background and skills:
+                        </div>
+                        <ul>
+                            <li>📄 CV: <a href="cv/CV_Xotourliff.pdf" target="_blank" rel="noopener">Download My CV (PDF)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
