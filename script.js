@@ -75,7 +75,7 @@ let writeups = [
         platform: "htb",
         difficulty: "advanced",
         tags: ["MSSQL coercion", "NTLM Relay", "RBCD"],
-        date: "2026-02-18",
+        date: "2026-03-30",
         image: "images/reflection-logo.webp",
         mediumUrl: "https://medium.com/@Xotourliff/reflection-walkthrough-8f2dbd4287cf",
         description: "Reflection is a mini prolab by VulnLab involving hard coded credentials discovering, NTLM Relay, RBCD and password spraying."
