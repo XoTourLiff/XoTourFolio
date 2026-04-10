@@ -86,14 +86,11 @@ let writeups = [
 // ===== WRITEUP RENDER =====
 function renderWriteups() {
     const grid = document.getElementById('writeup-grid');
-    if (!grid) return;
+    const gridEn = document.getElementById('writeup-grid-en');
 
-    if (writeups.length === 0) {
-        grid.innerHTML = `<div class="no-writeups">Aucun writeup publie pour l'instant — bientot disponible.</div>`;
-        return;
-    }
-
-    grid.innerHTML = writeups.map(w => `
+    const html = writeups.length === 0
+        ? `<div class="no-writeups">Aucun writeup publié pour l'instant — bientôt disponible.</div>`
+        : writeups.map(w => `
         <div class="writeup-card" onclick="openWriteup(${w.id})">
             <div class="writeup-card-img">
                 <img src="${w.image}" alt="${w.title}" onerror="this.style.background='rgba(20,40,80,0.5)';this.style.display='block';this.style.minHeight='180px'">
@@ -106,12 +103,15 @@ function renderWriteups() {
                 <div class="writeup-desc">${w.description}</div>
                 <div class="writeup-tags">${w.tags.map(t => `<span class="writeup-tag">${t}</span>`).join('')}</div>
                 <div class="writeup-meta">
-                    <span class="writeup-difficulty diff-${w.difficulty}">${w.difficulty.charAt(0).toUpperCase() + w.difficulty.slice(1)}</span>
+                    <span class="writeup-difficulty diff-${w.difficulty.toLowerCase()}">${w.difficulty.charAt(0).toUpperCase() + w.difficulty.slice(1)}</span>
                     <span>${w.date}</span>
                 </div>
             </div>
         </div>
     `).join('');
+
+    if (grid) grid.innerHTML = html;
+    if (gridEn) gridEn.innerHTML = html;
 }
 
 function openWriteup(id) {
