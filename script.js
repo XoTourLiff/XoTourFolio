@@ -112,14 +112,14 @@ const articles = [
     },
     {
         id: 2,
-        title: "Retex CAPE",
+        title: "I passed CAPE, here is my honest review 🧙‍♂️(In French)",
         titleEn: "CAPE debrief (French only)",
         source: "HackTheBox",
-        level: "medium",
+        level: "easy",
         tags: ["Active Directory", "Evasion", "C2"],
         date: "",
         image: "images/CAPE_magic.png",
-        url: "",
+        url: "https://medium.com/@Xotourliff/i-passed-cape-here-is-my-honest-review-%EF%B8%8F-in-french-3dbd39118226?postPublishedType=initial",
         description: "Retour d'expérience sur la certification CAPE de Hack The Box : préparation, examen et rapport.",
         descriptionEn: "Debrief on the CAPE certification by Hack The Box: preparation, exam and report."
     },
