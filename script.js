@@ -113,7 +113,7 @@ const articles = [
     {
         id: 2,
         title: "I passed CAPE, here is my honest review 🧙‍♂️(In French)",
-        titleEn: "CAPE debrief (French only)",
+        titleEn: "I passed CAPE, here is my honest review 🧙‍♂️(In French)",
         source: "HackTheBox",
         level: "easy",
         tags: ["Active Directory", "Evasion", "C2"],
