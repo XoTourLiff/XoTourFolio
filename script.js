@@ -1,33 +1,55 @@
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // ===== STARFIELD =====
-// Le champ d'étoiles est dessiné une seule fois sur un calque statique.
-// Seules quelques étoiles (MOVING_STARS) sont réellement animées par-dessus.
+// Fond statique dessiné une fois (net sur écrans Retina), quelques étoiles animées
+// par-dessus, et une étoile filante de temps en temps.
 (function createStarfield() {
     const canvas = document.getElementById('starfield');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
 
-    const NUM_STARS = 280;
-    const MOVING_STARS = 14;
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const BASE_STARS = 320;
+    const MOVING_STARS = 16;
+    const TINTS = ['200, 220, 255', '222, 234, 255', '255, 243, 224', '172, 202, 255'];
 
     const staticLayer = document.createElement('canvas');
     const staticCtx = staticLayer.getContext('2d');
+    let width = 0;
+    let height = 0;
+    let dpr = 1;
     let movers = [];
+    let shooting = null;
+    let nextShootAt = 0;
     let rafId = null;
 
-    function drawStar(context, x, y, radius, alpha) {
+    const pick = arr => arr[Math.floor(Math.random() * arr.length)];
+
+    function drawStar(context, x, y, r, alpha, tint, glow) {
+        if (glow) {
+            const g = context.createRadialGradient(x, y, 0, x, y, r * 5);
+            g.addColorStop(0, 'rgba(' + tint + ', ' + (alpha * 0.35) + ')');
+            g.addColorStop(1, 'rgba(' + tint + ', 0)');
+            context.fillStyle = g;
+            context.beginPath();
+            context.arc(x, y, r * 5, 0, Math.PI * 2);
+            context.fill();
+        }
         context.beginPath();
-        context.arc(x, y, radius, 0, Math.PI * 2);
-        context.fillStyle = 'rgba(200, 220, 255, ' + alpha + ')';
+        context.arc(x, y, r, 0, Math.PI * 2);
+        context.fillStyle = 'rgba(' + tint + ', ' + alpha + ')';
         context.fill();
     }
 
     function buildStaticLayer() {
-        staticLayer.width = canvas.width;
-        staticLayer.height = canvas.height;
-        staticCtx.clearRect(0, 0, staticLayer.width, staticLayer.height);
-        for (let i = 0; i < NUM_STARS; i++) {
-            drawStar(staticCtx, Math.random() * staticLayer.width, Math.random() * staticLayer.height, Math.random() * 1.3 + 0.2, Math.random() * 0.5 + 0.15);
+        staticLayer.width = width * dpr;
+        staticLayer.height = height * dpr;
+        staticCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        staticCtx.clearRect(0, 0, width, height);
+        const density = Math.min(1.4, Math.max(0.45, (width * height) / (1440 * 900)));
+        const count = Math.round(BASE_STARS * density);
+        for (let i = 0; i < count; i++) {
+            const r = Math.pow(Math.random(), 3) * 1.4 + 0.25;
+            drawStar(staticCtx, Math.random() * width, Math.random() * height, r, Math.random() * 0.5 + 0.15, pick(TINTS), r > 1.15);
         }
     }
 
@@ -35,46 +57,99 @@
         movers = [];
         for (let i = 0; i < MOVING_STARS; i++) {
             movers.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
+                x: Math.random() * width,
+                y: Math.random() * height,
                 radius: Math.random() * 0.9 + 0.7,
-                drift: (Math.random() * 0.10 + 0.03) * (Math.random() < 0.5 ? -1 : 1),
+                drift: (Math.random() * 0.1 + 0.03) * (Math.random() < 0.5 ? -1 : 1),
                 sink: (Math.random() * 0.05 + 0.01) * (Math.random() < 0.5 ? -1 : 1),
                 speed: Math.random() * 0.5 + 0.25,
-                phase: Math.random() * Math.PI * 2
+                phase: Math.random() * Math.PI * 2,
+                tint: pick(TINTS)
             });
         }
     }
 
     function resize() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         buildStaticLayer();
         buildMovers();
     }
 
-    function frame() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(staticLayer, 0, 0);
-        const now = Date.now() / 1000;
+    function drawStatic() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.drawImage(staticLayer, 0, 0, width, height);
+    }
+
+    function spawnShootingStar() {
+        const dir = Math.random() < 0.5 ? 1 : -1;
+        const angle = (Math.random() * 15 + 18) * Math.PI / 180;
+        const speed = Math.random() * 4 + 10;
+        shooting = {
+            x: width * (0.15 + Math.random() * 0.7),
+            y: height * Math.random() * 0.35,
+            vx: Math.cos(angle) * speed * dir,
+            vy: Math.sin(angle) * speed,
+            len: 110 + Math.random() * 90,
+            life: 0,
+            maxLife: 50
+        };
+    }
+
+    function drawShootingStar(now) {
+        const s = shooting;
+        s.x += s.vx;
+        s.y += s.vy;
+        s.life++;
+        const p = s.life / s.maxLife;
+        const alpha = p < 0.2 ? p / 0.2 : Math.max(0, 1 - (p - 0.2) / 0.8);
+        const speed = Math.hypot(s.vx, s.vy);
+        const tx = s.x - (s.vx / speed) * s.len;
+        const ty = s.y - (s.vy / speed) * s.len;
+        const g = ctx.createLinearGradient(s.x, s.y, tx, ty);
+        g.addColorStop(0, 'rgba(236, 245, 255, ' + (alpha * 0.9) + ')');
+        g.addColorStop(1, 'rgba(236, 245, 255, 0)');
+        ctx.strokeStyle = g;
+        ctx.lineWidth = 1.3;
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.moveTo(s.x, s.y);
+        ctx.lineTo(tx, ty);
+        ctx.stroke();
+        if (s.life >= s.maxLife) {
+            shooting = null;
+            nextShootAt = now + 7000 + Math.random() * 9000;
+        }
+    }
+
+    function frame(now) {
+        drawStatic();
+        const t = now / 1000;
         movers.forEach(star => {
             star.x += star.drift;
             star.y += star.sink;
-            if (star.x < -5) star.x = canvas.width + 5;
-            if (star.x > canvas.width + 5) star.x = -5;
-            if (star.y < -5) star.y = canvas.height + 5;
-            if (star.y > canvas.height + 5) star.y = -5;
-            const twinkle = 0.35 + 0.65 * Math.abs(Math.sin(now * star.speed + star.phase));
-            drawStar(ctx, star.x, star.y, star.radius, twinkle * 0.9);
+            if (star.x < -5) star.x = width + 5;
+            if (star.x > width + 5) star.x = -5;
+            if (star.y < -5) star.y = height + 5;
+            if (star.y > height + 5) star.y = -5;
+            const twinkle = 0.35 + 0.65 * Math.abs(Math.sin(t * star.speed + star.phase));
+            drawStar(ctx, star.x, star.y, star.radius, twinkle * 0.9, star.tint, twinkle > 0.85);
         });
+        if (shooting) drawShootingStar(now);
+        else if (now >= nextShootAt) spawnShootingStar();
         rafId = requestAnimationFrame(frame);
     }
 
     resize();
     if (reduceMotion) {
-        ctx.drawImage(staticLayer, 0, 0);
+        drawStatic();
     } else {
-        frame();
+        nextShootAt = performance.now() + 3500;
+        rafId = requestAnimationFrame(frame);
     }
 
     let resizeTimer = null;
@@ -82,14 +157,18 @@
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
             resize();
-            if (reduceMotion) { ctx.clearRect(0, 0, canvas.width, canvas.height); ctx.drawImage(staticLayer, 0, 0); }
+            if (reduceMotion) drawStatic();
         }, 150);
     });
 
     document.addEventListener('visibilitychange', () => {
         if (reduceMotion) return;
-        if (document.hidden) { cancelAnimationFrame(rafId); rafId = null; }
-        else if (rafId === null) { frame(); }
+        if (document.hidden) {
+            cancelAnimationFrame(rafId);
+            rafId = null;
+        } else if (rafId === null) {
+            rafId = requestAnimationFrame(frame);
+        }
     });
 })();
 
@@ -177,8 +256,8 @@ const articles = [
 const LEVEL_SCALE = { easy: 1, medium: 2, hard: 3, advanced: 4 };
 
 const I18N = {
-    fr: { all: "Tout", draft: "en cours", empty: "Aucun article publié pour le moment.", count: n => n + (n > 1 ? " articles" : " article") },
-    en: { all: "All", draft: "draft", empty: "No article published yet.", count: n => n + (n > 1 ? " articles" : " article") }
+    fr: { all: "Tout", draft: "en cours de rédaction", empty: "Aucun article dans cette catégorie pour le moment.", count: n => n + (n > 1 ? " articles" : " article"), close: "Fermer" },
+    en: { all: "All", draft: "draft", empty: "No article in this category yet.", count: n => n + (n > 1 ? " articles" : " article"), close: "Close" }
 };
 
 let currentLang = 'fr';
@@ -234,7 +313,7 @@ function renderFilters(lang) {
     if (!box) return;
     const sources = [...new Set(articles.map(a => a.source))];
     const values = ['all', ...sources];
-    box.innerHTML = values.map(v => `<button type="button" class="filter-btn${v === currentFilter ? ' active' : ''}" data-filter="${esc(v)}">${v === 'all' ? I18N[lang].all : esc(v)}</button>`).join('');
+    box.innerHTML = values.map(v => `<button type="button" class="filter-btn${v === currentFilter ? ' active' : ''}" data-filter="${esc(v)}" aria-pressed="${v === currentFilter}">${v === 'all' ? I18N[lang].all : esc(v)}</button>`).join('');
 }
 
 function renderArticles(lang) {
@@ -259,11 +338,39 @@ function openArticle(id) {
     window.open(a.url, '_blank', 'noopener');
 }
 
+// ===== LIGHTBOX (certifications) =====
+const lightbox = document.getElementById('lightbox');
+
+function openLightbox(img) {
+    if (!lightbox || typeof lightbox.showModal !== 'function') {
+        window.open(img.currentSrc || img.src, '_blank', 'noopener');
+        return;
+    }
+    const target = lightbox.querySelector('img');
+    target.src = img.currentSrc || img.src;
+    target.alt = img.alt;
+    lightbox.querySelector('.lightbox-close').setAttribute('aria-label', I18N[currentLang].close);
+    lightbox.showModal();
+}
+
+if (lightbox) {
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox || e.target.closest('.lightbox-close')) lightbox.close();
+    });
+}
+
+// ===== CLICS =====
 document.addEventListener('click', (e) => {
     const filterBtn = e.target.closest('.filter-btn');
     if (filterBtn) {
         currentFilter = filterBtn.dataset.filter;
         renderAllArticles();
+        return;
+    }
+    const certBtn = e.target.closest('button.cert-media');
+    if (certBtn) {
+        const img = certBtn.querySelector('img');
+        if (img) openLightbox(img);
         return;
     }
     const row = e.target.closest('.article-row');
@@ -273,47 +380,69 @@ document.addEventListener('click', (e) => {
 document.addEventListener('keydown', (e) => {
     if (e.key !== 'Enter' && e.key !== ' ') return;
     const row = e.target.closest && e.target.closest('.article-row');
-    if (row) { e.preventDefault(); openArticle(Number(row.dataset.id)); }
+    if (row) {
+        e.preventDefault();
+        openArticle(Number(row.dataset.id));
+    }
 });
 
-// ===== LANGUAGE SWITCHING =====
+// ===== LANGUE =====
 function switchLanguage(lang) {
+    if (!I18N[lang]) lang = 'fr';
     currentLang = lang;
     document.documentElement.lang = lang;
-    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.lang === lang));
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+        const on = btn.dataset.lang === lang;
+        btn.classList.toggle('active', on);
+        btn.setAttribute('aria-pressed', String(on));
+    });
     document.querySelectorAll('.lang-content').forEach(content => content.classList.toggle('active', content.dataset.lang === lang));
-
-    const navLinks = document.querySelectorAll('.nav-link');
-    const labels = lang === 'fr' ? ['Accueil', 'Articles', 'Certifications', 'Contact'] : ['About Me', 'Articles', 'Certifications', 'Contact'];
-    navLinks.forEach((link, i) => { if (labels[i]) link.textContent = labels[i]; });
-
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const label = link.dataset[lang];
+        if (label) link.textContent = label;
+    });
+    try { localStorage.setItem('xotourfolio-lang', lang); } catch (err) { /* stockage indisponible */ }
     renderArticles(lang);
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => switchLanguage(btn.dataset.lang)));
 
 // ===== NAVIGATION =====
-const navLinks = document.querySelectorAll('.nav-link');
-const pages = document.querySelectorAll('.page');
+// Chaque page a sa propre ancre (#articles, #certifs...) : les liens sont partageables
+// et le bouton retour du navigateur fonctionne.
+const PAGE_IDS = ['home', 'articles', 'certifs', 'contact'];
 
-document.querySelectorAll('nav a').forEach(link => {
+function showPage(id) {
+    if (!PAGE_IDS.includes(id)) id = 'home';
+    document.querySelectorAll('.page').forEach(page => page.classList.toggle('active', page.id === id));
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const on = link.getAttribute('href') === '#' + id;
+        link.classList.toggle('active', on);
+        if (on) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+    });
+    if (id === 'articles') renderArticles(currentLang);
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+}
+
+document.querySelectorAll('.site-nav a[href^="#"]').forEach(link => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
-        const href = link.getAttribute('href');
-        const target = document.getElementById(href.substring(1));
-        if (!target) return;
-        navLinks.forEach(nav => nav.classList.remove('active'));
-        pages.forEach(page => page.classList.remove('active'));
-        document.querySelector('.nav-link[href="' + href + '"]').classList.add('active');
-        target.classList.add('active');
-        if (href === '#articles') renderArticles(currentLang);
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const id = link.getAttribute('href').slice(1);
+        if (location.hash !== '#' + id) history.pushState(null, '', '#' + id);
+        showPage(id);
     });
 });
 
-document.querySelectorAll('.social-link').forEach(link => {
-    link.addEventListener('mouseenter', () => { link.style.transform = 'translateY(-5px) scale(1.05)'; });
-    link.addEventListener('mouseleave', () => { link.style.transform = 'translateY(0) scale(1)'; });
-});
+window.addEventListener('popstate', () => showPage(location.hash.slice(1)));
 
-document.addEventListener('DOMContentLoaded', renderAllArticles);
+// ===== INIT =====
+document.querySelectorAll('.js-year').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+(function init() {
+    let saved = null;
+    try { saved = localStorage.getItem('xotourfolio-lang'); } catch (err) { /* stockage indisponible */ }
+    switchLanguage(saved || 'fr');
+    renderAllArticles();
+    showPage(location.hash.slice(1));
+})();
